@@ -42,21 +42,32 @@ public class Main
             pilihan = input.nextInt();
             switch (pilihan) {
                 case 1:
-                    tampilkanMonsterToko();
-                    System.out.println("Monster nomor berapa yang akan kamu beli?");
-                    System.out.print("Nomor monster: ");
-                    int beli = input.nextInt();
-                    beliMonster(beli);
-                    break;
+                    if(monster_toko.isEmpty()){
+                        System.out.println("Ups! Monster di toko sudah habis");
+                        break;
+                    }
+                    else {
+                        tampilkanMonsterToko();
+                        System.out.println("Monster nomor berapa yang akan kamu beli?");
+                        System.out.print("Nomor monster: ");
+                        int beli = input.nextInt();
+                        beliMonster(beli);
+                        break;
+                    }
                 case 2:
-                    tampilkanMonsterSaya();
-                    System.out.println("Monster nomor berapa saja yang akan kamu gabungkan?");
-                            System.out.print("Nomor monster 1: ");
-                    int monster1 = input.nextInt();
-                    System.out.print("Nomor monster 2: ");
-                    int monster2 = input.nextInt();
-                    gabungkanMonster(monster1, monster2);
-                    break;
+                    if(monster_namaKamu.isEmpty()){
+                        System.out.println("Ups! Kamu belum memilihi monster");
+                        break;
+                    }else {
+                        tampilkanMonsterSaya();
+                        System.out.println("Monster nomor berapa saja yang akan kamu gabungkan?");
+                        System.out.print("Nomor monster 1: ");
+                        int monster1 = input.nextInt();
+                        System.out.print("Nomor monster 2: ");
+                        int monster2 = input.nextInt();
+                        gabungkanMonster(monster1, monster2);
+                        break;
+                    }
                 case 3:
                     tampilkanMonsterSaya();
                     System.out.println("Monster nomor berapa yang akan kamu lihat?");
